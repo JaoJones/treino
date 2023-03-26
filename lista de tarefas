@@ -1,0 +1,24 @@
+tarefas = {}
+
+while True:
+    print("Lista de tarefas:")
+    if tarefas:
+        for numero, tarefa in sorted(tarefas.items()):
+            print(f"{numero}: {tarefa}")
+    else:
+        print("Nenhuma tarefa na lista.")
+    
+    acao = input("O que você gostaria de fazer? Adicionar (a) ou Sair (s)? ")
+
+    if acao.lower() == "a":
+        numero = input("Digite o número da tarefa: ")
+        tarefa = input("Digite a tarefa: ")
+        tarefas[numero] = tarefa
+    elif acao.lower() == "s":
+        break
+    else:
+        print("Opção inválida. Tente novamente.")
+
+print("Lista final de tarefas:")
+for numero, tarefa in sorted(tarefas.items(), key=lambda x: int(x[0])):
+    print(f"{numero}: {tarefa}")
